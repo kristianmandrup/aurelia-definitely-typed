@@ -1,15 +1,13 @@
 /// <reference path="lib.d.ts" />
 /// <reference path="aurelia-logging.d.ts" />
 
-var levels = {
-    none: 2;
-    error: 4;
-    warn: 5;
-    info: 6;
-    debug: 7;
-};
-
 function testLogging {
+  levels.none == 2;
+  levels.error == 4;
+  levels.warn == 5;
+  levels.info == 6;
+  levels.debug == 7;
+  
   var ae = new AggregateError('x', {}, true);
   var l = getLogger('x');
   addAppender({});
