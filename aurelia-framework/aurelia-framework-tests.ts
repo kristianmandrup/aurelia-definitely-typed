@@ -14,3 +14,27 @@ function testPlugins() {
 
   plgs = plg.plugin(moduleId, config);
 }
+
+
+function testAurelia {
+  var loader = {};
+  var container = {};
+  var resources = [];
+  Aurelia au = new Aurelia(loader, container, resources);
+
+  au.loader;
+  au.container;
+  au.resources;
+  au.use;
+  au.resourcesToLoad;
+  au.currentPluginId;
+  au.started;
+  au.host;
+  au.root;
+  Aurelia aux = au.withInstance('x', {});
+  aux = au.withSingleton('y', {});
+  aux = au.globalizeResources([]);
+  aux = au.renameGlobalResource('x/y', 'x');
+  au.start();
+  au.setRoot('x', 'y');
+}

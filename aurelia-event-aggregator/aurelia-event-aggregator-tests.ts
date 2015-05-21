@@ -14,4 +14,6 @@ function testEventAggregator {
   evag.subscribeOnce(ev, cb);
 
   EventAggregator ea = includeEventsIn({});
+  Aurelia aurelia;
+  configure(aurelia);
 }
