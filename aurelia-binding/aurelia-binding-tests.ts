@@ -1,22 +1,33 @@
 / <reference path="lib.d.ts" />
 / <reference path="aurelia-binding.d.ts" />
 
+var scope = {};
+var binding = {};
+var visitor = {};
+var observerLocator = {};
+var object = {};
+var args = {y:2};
+
 function testAccessKeyedObserver {
-  var akObs = new AccessKeyedObserver(); {
-  var info = akObs.objectInfo;
-   keyInfo;
-   evaluate;
-   observerLocator;
-   disposeKey;
-   disposeObject;
-   disposeProperty;
-   callback;
-   constructor(objectInfo: any, keyInfo: any, observerLocator: any, evaluate: any);
-   updatePropertySubscription(object: any, key: any): void;
-   objectOrKeyChanged(object: any, key?: any): void;
-   subscribe(callback: any): () => void;
-   notify(): void;
-   dispose(): void;
+  var objectInfo = {};
+  var keyInfo = {};
+  var observerLocator {};
+  var evaluate = 'x';
+
+    var akObs = new AccessKeyedObserver(objectInfo, keyInfo, observerLocator, evaluate);
+  akObs.objectInfo;
+  akObs.keyInfo;
+  akObs.evaluate;
+  akObs.observerLocator;
+  akObs.disposeKey;
+  akObs.disposeObject;
+  akObs.disposeProperty;
+  akObs.callback;
+  akObs.updatePropertySubscription(object, 'x');
+  akObs.objectOrKeyChanged(object, 'x');
+  akObs.subscribe(function() {});
+  akObs.notify();
+  akObs.dispose();
 }
 
 function testModifyCollectionObserver {
@@ -43,7 +54,6 @@ function testModifyCollectionObserver {
 
 function testCollectionLengthObserver {
   var clObs = new CollectionLengthObserver([]);
-
   clObs.collection;
   clObs.callbacks;
   clObs.lengthPropertyName;
@@ -53,7 +63,6 @@ function testCollectionLengthObserver {
   clObs.subscribe(function() {});
   clObs.call(3);
 }
-
 
 function testPathObserver {
   var leftObserver = {};
@@ -198,4 +207,37 @@ function testCallScope {
   cs.evaluate(scope, [{}], {y:2});
   cs.accept(visitor);
   cs.connect(binding, scope);
+}
+
+function testCallMember {
+  CallMember cm = new CallMember({}, 'x', {y:2});
+  cm.object;
+  cm.name;
+  cm.args;
+
+  cm.evaluate(scope, [{}], {y:2});
+  cm.accept(visitor);
+  cm.connect(binding, scope);
+}
+
+function testCallFunction {
+  CallFunction cf = new CallFunction(function() {}, {y:2});
+  cf.func;
+  cf.args;
+  cf.evaluate(scope, valueConverters, args);
+  cf.accept(visitor);
+  cf.connect(binding, scope);
+}
+
+function testBinary {
+  var operation = 'x';
+  var left = 1, right = 2;
+  Binary b = new Binary(operation, left, right);
+
+  b.operation;
+  b.left;
+  b.right;
+  b.evaluate(scope, valueConverters);
+  b.accept(visitor);
+  b.connect(binding, scope);
 }
