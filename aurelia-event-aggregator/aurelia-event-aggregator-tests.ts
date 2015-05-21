@@ -12,5 +12,6 @@ function testEventAggregator {
   evag.publish(ev, []);
   evag.subscribe(ev, cb);
   evag.subscribeOnce(ev, cb);
-}
 
+  EventAggregator ea = includeEventsIn({});
+}
