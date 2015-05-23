@@ -504,3 +504,218 @@ function testCheckedObserver {
   co.unsubscribe(callback);
   co.unbind();
 }
+
+function testEventManager {
+  var em = new EventManager();
+  em.elementHandlerLookup;
+  em.eventStrategyLookup;
+  em.defaultEventStrategy;
+
+  em.registerElementConfig(config);
+  em.registerElementPropertyConfig(tagName, propertyName, events);
+  em.registerElementHandler(tagName, handler);
+  em.registerEventStrategy(eventName, strategy);
+  em.getElementHandler(target, propertyName);
+  em.addEventListener(target, targetEvent, callback, delegate);
+}
+
+function testValueConverterResource {
+  var vcr = new ValueConverterResource();
+  vcr = new ValueConverterResource('blip');
+
+  vcr.name;
+  vcr.instance;
+
+  vcr = ValueConverterResource.convention(name);
+  vcr.analyze(container, target);
+  vcr.register(registry, name);
+  Promise<ValueConverterResource> p;
+  p = vcr.load(container, target);
+}
+
+function testSetterObserver {
+  var so = new SetterObserver(taskQueue, obj, propertyName);
+
+  so.taskQueue;
+  so.obj;
+  so.propertyName;
+  so.callbacks;
+  so.queued;
+  so.observing;
+  so.currentValue;
+  so.oldValue;
+
+  so.getValue();
+  so.setValue(newValue);
+  so.getterValue();
+  so.setterValue(newValue);
+  so.call();
+  so.subscribe(callback);
+  so.convertProperty();
+}
+
+function testOoObjectObserver {
+  var ooo = new OoObjectObserver(obj, observerLocator);
+  ooo.obj;
+  ooo.observers;
+  ooo.observerLocator;
+  ooo.observing;
+  ooo.subscribe(propertyObserver, callback);
+  ooo.getObserver(propertyName, descriptor);
+  ooo.handleChanges(changeRecords);
+}
+
+function testOoPropertyObserver {
+  var opo = new OoPropertyObserver(owner, obj, propertyName);
+  opo.owner;
+  opo.obj;
+  opo.propertyName;
+  opo.callbacks;
+
+  opo.getValue();
+  opo.setValue(newValue);
+  opo.trigger(newValue, oldValue);
+  opo.subscribe(callback);
+}
+
+function testUndefinedPropertyObserver {
+  var upo = new UndefinedPropertyObserver(owner, obj, propertyName);
+  upo.owner;
+  upo.obj;
+  upo.propertyName;
+  upo.callbackMap;
+  upo.callbacks;
+  upo.actual;
+  upo.subscription;
+
+  upo.getValue();
+  upo.setValue(newValue);
+  upo.trigger(newValue, oldValue);
+  upo.getObserver();
+  upo.subscribe(callback);
+}
+
+function testObserverLocator {
+  var ol = new ObserverLocator(taskQueue, eventManager, dirtyChecker, observationAdapters);
+  ol.taskQueue;
+  ol.eventManager;
+  ol.dirtyChecker;
+  ol.observationAdapters;
+  ObserverLocator.inject()[1];
+
+  ol.getObserversLookup(obj);
+  ol.getObserver(obj, propertyName);
+  ol.getObservationAdapter(obj, propertyName, descriptor);
+  ol.createPropertyObserver(obj, propertyName);
+  ol.getArrayObserver(array);
+  ol.getMapObserver(map);
+}
+
+function testObjectObservationAdapter {
+  handlesProperty(object, propertyName, descriptor);
+  getObserver(object, propertyName, descriptor);
+}
+
+function testToken {
+  var t = new Token(index, text);
+  t.index;
+  t.text;
+  t.opKey;
+  t.key;
+  t.value;
+
+  t = t.withOp(op);
+  t = t.withGetterSetter(key);
+  t = t.withValue(value);
+  t.toString() == 'x';
+}
+function testLexer {
+  var l = new Lexer()
+  l.lex(text)[1];
+}
+
+function testScanner {
+  var sc = new Scanner(input);
+  sc.input;
+  sc.length;
+  sc.peek;
+  sc.index;
+
+  sc.scanToken();
+  var t : Token;
+
+  t = sc.scanCharacter(start, text);
+  t = sc.scanOperator(start, text);
+  t = sc.scanComplexOperator(start, code, one, two);
+
+
+  t = sc.scanIdentifier();
+  t = sc.scanNumber(start);
+  t = sc.scanString();
+  sc.advance();
+  sc.error(message);
+  sc.error(message, 3);
+}
+
+function testParser {
+  var p = new Parser();
+  p.cache;
+  p.lexer;
+
+  p.parse(input);
+}
+
+function testParserImplementation {
+  var pi = new ParserImplementation(lexer, input);
+  pi.index;
+  pi.input;
+  pi.tokens;
+
+  pi.peek;
+  pi.parseChain();
+  pi.parseValueConverter();
+  pi.parseExpression();
+  pi.parseConditional();
+  pi.parseLogicalOr();
+  pi.parseLogicalAnd();
+  pi.parseEquality();
+  pi.parseRelational();
+  pi.parseAdditive();
+  pi.parseMultiplicative();
+  pi.parsePrefix();
+  pi.parseAccessOrCallMember();
+  pi.parsePrimary();
+
+    var as : AccessScope
+  as = pi.parseAccessOrCallScope(): ;
+
+  var lo : LiteralObject;
+  lo = pi.parseObject();
+
+  pi.parseExpressionList(terminator)[1];
+  pi.optional(text): boolean;
+  pi.expect(text);
+  pi.advance();
+  pi.error(message);
+}
+
+function testListenerExpression {
+  var le = new ListenerExpression(eventManager, targetEvent, sourceExpression, delegate, preventDefault);
+  le.eventManager;
+  le.targetEvent;
+  le.sourceExpression;
+  le.delegate;
+  le.discrete;
+  le.preventDefault;
+
+  le.createBinding(target);
+}
+
+function testNameExpression {
+  var ne = new NameExpression(name, mode);
+  ne.property;
+  ne.discrete;
+  ne.mode;
+
+  ne.createBinding(target);
+}
