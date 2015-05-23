@@ -11,11 +11,11 @@ function testCssAnimator() {
 
   animator.addMultipleEventListener(el, s, fn);
   animator.addAnimationToStack(animId);
-  animator.removeAnimationFromStack(animId);  
+  animator.removeAnimationFromStack(animId);
   animator.getElementAnimationDelay(element);
   animator.move();
   animator.enter(element);
   animator.leave(element);
   animator.removeClass(element, className);
   animator.addClass(element, className);
-} 
+}

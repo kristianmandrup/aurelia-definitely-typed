@@ -46,8 +46,8 @@ function testModifyCollectionObserver {
   mcObs.lengthObserver;
   mcObs.array;
   mcObs.subscribe(function() {});
-  mcObs.addChangeRecord({}): void;
-  mcObs.reset([]): void;
+  mcObs.addChangeRecord({});
+  mcObs.reset([]);
   mcObs.getLengthObserver();
   mcObs.call();
 }
@@ -240,4 +240,267 @@ function testBinary {
   b.evaluate(scope, valueConverters);
   b.accept(visitor);
   b.connect(binding, scope);
+}
+
+var binding = {}, scope = {},
+var visitor = function() {
+
+};
+var valueConverters = {};
+
+function testPrefixNot {
+  var operation = '+', expression = '2+4';
+  var pfn = PrefixNot(operation);
+  pfn.operation;
+  pfn.expression;
+
+  pfn.evaluate(scope, valueConverters) == true;
+  pfn.accept(visitor);
+  pfn.connect(binding, scope);
+}
+
+function testLiteralPrimitive {
+  var lp = new LiteralPrimitive(value);
+  lp.value;
+  lp.evaluate();
+  lp.evaluate(scope);
+  var x = lp.evaluate(scope, valueConverters);
+  lp.accept(visitor);
+  lp.connect(binding, scope);
+}
+
+function testLiteralString extends Expression {
+  var ls = new LiteralString('x');
+  ls.value;
+  ls.evaluate();
+  ls.evaluate(scope);
+  var x = ls.evaluate(scope, valueConverters);
+  ls.accept(visitor);
+  ls.connect(binding, scope);
+}
+function testLiteralArray {
+  var la = new LiteralString(elements);
+  la.elements;
+  la.evaluate();
+  la.evaluate(scope);
+  var x = la.evaluate(scope, valueConverters);
+  la.accept(visitor);
+  la.connect(binding, scope);
+}
+function testLiteralObject {
+  var lobj = new LiteralString(['x', 'y'], [1,2]);
+  lobj.keys;
+  lobj.values;
+  lobj.evaluate();
+  lobj.evaluate(scope);
+  var x = lobj.evaluate(scope, valueConverters);
+  lobj.accept(visitor);
+  lobj.connect(binding, scope);
+}
+
+function testUnparser {
+  var expression = 'x.y';
+  var buffer = {};
+  var unp = new Unparser(buffer);
+  unp.buffer;
+
+  var x : String;
+  x = Unparser.unparse(expression);
+  var text = 'xyz';
+  var args = {x: 2};
+  var chain = [1,2,3];
+  var converter = function(x) {};
+  var assign, conditional, access, call, prefix, binary, literal;
+
+  unp.write(text);
+  unp.writeArgs(args);
+  unp.visitChain(chain);
+  unp.visitValueConverter(converter);
+  unp.visitAssign(assign);
+  unp.visitConditional(conditional);
+  unp.visitAccessScope(access);
+  unp.visitAccessMember(access);
+  unp.visitAccessKeyed(access);
+  unp.visitCallScope(call);
+  unp.visitCallFunction(call);
+  unp.visitCallMember(call);
+  unp.visitPrefix(prefix);
+  unp.visitBinary(binary);
+  unp.visitLiteralPrimitive(literal);
+  unp.visitLiteralArray(literal);
+  unp.visitLiteralObject(literal);
+  unp.visitLiteralString(literal);
+}
+
+function testbindingMode {
+  var bm = bindingMode;
+  bm.oneTime == 2;
+  bm.oneWay == 3;
+  bm.twoWay = 4;
+};
+
+function testBindingExpression {
+    observerLocator;
+    targetProperty;
+    sourceExpression;
+    mode;
+    valueConverterLookupFunction;
+    attribute;
+    discrete;
+    constructor(observerLocator, targetProperty, sourceExpression, mode, valueConverterLookupFunction, attribute?);
+    createBinding(target);
+}
+
+function testCallExpression {
+    observerLocator;
+    targetProperty;
+    sourceExpression;
+    valueConverterLookupFunction;
+    constructor(observerLocator, targetProperty, sourceExpression, valueConverterLookupFunction);
+    createBinding(target);
+}
+
+function testComputedPropertyObserver {
+  var obj = {}, propertyName = 'a', descriptor = {}, observerLocator = {};
+  var cpo = ComputedPropertyObserver(obj, propertyName, descriptor, observerLocator);
+  cpo.obj;
+  cpo.propertyName;
+  cpo.descriptor;
+  cpo.observerLocator;
+  cpo.callbacks;
+  cpo.oldValue;
+  cpo.subscriptions;
+
+  cpo.getValue();
+  cpo.setValue(newValue);
+  cpo.trigger(newValue, oldValue);
+  cpo.evaluate();
+  cpo.subscribe(callback);
+
+  hasDeclaredDependencies(descriptor);
+  declarePropertyDependencies(ctor, propertyName, dependencies);
+}
+
+function testDirtyChecker {
+  var dc = new DirtyChecker();
+  dc.tracked;
+  dc.checkDelay;
+
+  dc.addProperty(property);
+  dc.removeProperty(property);
+  dc.scheduleDirtyCheck();
+  dc.check();
+}
+
+function testDirtyCheckProperty {
+  var dcp = new DirtyCheckProperty(dirtyChecker, obj, propertyName);
+  dcp.dirtyChecker;
+  dcp.obj;
+  dcp.propertyName;
+  dcp.callbacks;
+  dcp.isSVG;
+  dcp.oldValue;
+  dcp.tracking;
+  dcp.newValue;
+
+  dcp.getValue();
+  dcp.setValue(newValue);
+  dcp.call();
+  dcp.isDirty() == false;
+  dcp.beginTracking();
+  dcp.endTracking();
+  dcp.subscribe(callback);
+}
+
+function testXLinkAttributeObserver {
+  var ao = new AttributeObserver(element, propertyName, attributeName);
+  ao.element;
+  ao.propertyName;
+  ao.attributeName;
+
+  ao.getValue();
+  ao.setValue(newValue);
+  ao.subscribe(callback);
+}
+
+function testDataAttributeObserver {
+  var dao = new DataAttributeObserver(element, propertyName);
+  dao.element;
+  dao.propertyName;
+
+  dao.getValue();
+  dao.setValue(newValue);
+  dao.subscribe(callback);
+}
+
+function testStyleObserver {
+  so = new StyleObserver(element, propertyName);
+  so.element;
+  so.propertyName;
+
+  so.getValue();
+  so.setValue(newValue);
+  so.subscribe(callback);
+  so.flattenCss(object) == 'x';
+}
+
+function testValueAttributeObserver {
+  var vao = new ValueAttributeObserver(element, propertyName, handler);
+  vao.element;
+  vao.propertyName;
+  vao.handler;
+  vao.callbacks;
+  vao.oldValue;
+  vao.disposeHandler;
+  vao.getValue();
+  vao.setValue(newValue);
+  vao.call();
+  vao.subscribe(callback);
+  vao.unsubscribe(callback);
+}
+
+function testSelect {
+  var sel = new ValueObserver(element, handler, observerLocator);
+  sel.element;
+  sel.handler;
+  sel.observerLocator;
+  sel.value;
+  sel.arraySubscription;
+  sel.initialSync;
+  sel.oldValue;
+  sel.callbacks;
+  sel.disposeHandler;
+  sel.domObserver;
+
+  sel.getValue();
+  sel.setValue(newValue);
+  sel.synchronizeOptions();
+  sel.synchronizeValue();
+  sel.call();
+  sel.subscribe(callback);
+  sel.unsubscribe(callback);
+  sel.bind();
+  sel.unbind();
+}
+
+function testCheckedObserver {
+  var co = new CheckedObserver(element, handler, observerLocator);
+  co.element;
+  co.handler;
+  co.observerLocator;
+  co.value;
+  co.arraySubscription;
+  co.initialSync;
+  co.oldValue;
+  co.callbacks;
+  co.disposeHandler;
+
+  co.getValue();
+  co.setValue(newValue);
+  co.synchronizeElement();
+  co.synchronizeValue();
+  co.call();
+  co.subscribe(callback);
+  co.unsubscribe(callback);
+  co.unbind();
 }

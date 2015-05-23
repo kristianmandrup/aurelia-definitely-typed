@@ -60,7 +60,7 @@ declare module "aurelia-templating" {
         create(container, executionContext, options?): View;
     }
     class ViewResources {
-        public viewUrl: string;
+        public viewUrl];
     }
     class ViewSlot {
         add(view: View);
@@ -77,19 +77,19 @@ declare module "aurelia-router" {
     import aureliahistory = require("aurelia-history");
 
     interface IRoute {
-        route: string | Array<string>;
-        moduleId: string;
+        route] | Array<string>;
+        moduleId];
         nav?: boolean | number;
-        title?: string;
+        title?];
         settings?: any;
     }
 
     interface INavigationInstruction {
         filter: (func: (route: IRouterStep) => boolean) => Array<IRouterStep>;
-        fragment: string;
-        queryString: string;
+        fragment];
+        queryString];
         params: any;  // TODO: routeParams
-        queryParams: string[];
+        queryParams][];
         config: IRouterConfig;
     }
 
@@ -105,27 +105,27 @@ declare module "aurelia-router" {
 
     interface IRouterStep {
         run: (routerContext: INavigationContext, next: any) => boolean | INavigationCommand;
-        cancel?: (message: string) => void;
+        cancel?: (message]) => void;
         config?: any;
     }
 
     interface IRouterConfig {
-        title: string;
-        moduleId: string;
+        title];
+        moduleId];
         map: (routeArray: Array<IRoute>) => void;
         mapUnknownRoutes: (any) => void;
-        addPipelineStep: (name: string, step: any) => void;
+        addPipelineStep: (name], step: any) => void;
         auth?: boolean | string[];
     }
 
     interface IRouterNavigationRouteConfig extends IRouterConfig {
-        route: string;
-        name: string;
+        route];
+        name];
         navModel: IRouterNavigationRoute;
-        href: string;
+        href];
         isActive: boolean;
         order: number;
-        relativeHref: string;
+        relativeHref];
         settings: Object;
     }
 
@@ -133,25 +133,25 @@ declare module "aurelia-router" {
         config: IRouterNavigationRouteConfig;
         isActive: boolean;
         order: number;
-        relativeHref: string;
+        relativeHref];
         settings: Object;
         auth: boolean | string[];
-        title: string;
+        title];
     }
 
     interface INavigateOptions {
         trigger: boolean;
-        replace?: string;
+        replace?];
     }
 
     class Router {
         isNavigating: boolean;
         configure(callbackOrConfig: (config: IRouterConfig) => void | IRouterConfig);
         navigation: Array<IRouterNavigationRoute>;
-        navigate(fragment: string, optionsOrTrigger: INavigateOptions | boolean);
+        navigate(fragment], optionsOrTrigger: INavigateOptions | boolean);
         navigateBack();
         refreshNavigation();
-        title: string;
+        title];
         addRoute(config: IRoute);
         reset();
         routes: IRoute[];
@@ -162,12 +162,12 @@ declare module "aurelia-router" {
     }
 
     class Redirect implements INavigationCommand {
-        constructor(url: string);
+        constructor(url]);
         navigate(appRouter);
     }
 
     class AppRouter {
-        baseUrl: string;
+        baseUrl];
         childRecognizer: any;
         container: aureliadependencyinjection.Container;
         currentInstruction: INavigationInstruction;
@@ -180,12 +180,12 @@ declare module "aurelia-router" {
         queue: any[];
         recognizer: any;// todo: RouteRecognizer
         routes: any[];
-        title: string;
+        title];
         viewPorts: any;
     }
 
     interface INavigationResult {
-        status: string;
+        status];
         context: INavigationContext;
         output: Error;
         completed: boolean;
@@ -200,7 +200,7 @@ declare module "aurelia-router" {
     class NavigationContext {
         plan: {
             default: {
-                config: { moduleId: string }
+                config: { moduleId] }
             }
         }
         router: Router;
@@ -211,21 +211,21 @@ declare module "aurelia-router" {
 declare module "aurelia-history" {
     class History {
         active: boolean;
-        fragment: string;
+        fragment];
         history: History;
         interval: number;
         location: any; // todo: Location
         options: any;
-        previousFragment: string;
-        root: string;
+        previousFragment];
+        root];
     }
 }
 
 declare module "aurelia-event-aggregator" {
     class EventAggregator {
         // string channels
-        publish(event: string, data: any): void;
-        subscribe(event: string, callback: Function): void;
+        publish(event], data: any): void;
+        subscribe(event], callback: Function): void;
 
         // typed channels
         publish<T>(event: T): void;
@@ -251,38 +251,38 @@ declare module "aurelia-http-client" {
         headers: HttpHeaders;
         isSuccess: boolean;
         response: T;
-        responseType: string;
+        responseType];
         statusCode: number;
-        statusText: string;
+        statusText];
         content: T;
     }
 
     class HttpHeaders {
-        add: (key: string, value: string) => void;
-        get: (key: string) => string;
+        add: (key], value]) => void;
+        get: (key]) => string;
         clear: () => void;
     }
 
     class HttpClient {
         defaultRequestHeaders: HttpHeaders;
-        constructor(baseUrl?: string, defaultRequestHeaders?: HttpHeaders)
-        jsonp(url: string): IPromise<IJsonpResponse>;
-        get(uri: string): IPromise<any>;
-        put(uri: string, content: any, replacer: any): IPromise<any>;
-        patch(uri: string, content: any, replacer?: any): IPromise<any>;
-        post(uri: string, content: any, replacer?: any): IPromise<any>;
-        delete(uri: string): IPromise<any>;
+        constructor(baseUrl?], defaultRequestHeaders?: HttpHeaders)
+        jsonp(url]): IPromise<IJsonpResponse>;
+        get(uri]): IPromise<any>;
+        put(uri], content: any, replacer: any): IPromise<any>;
+        patch(uri], content: any, replacer?: any): IPromise<any>;
+        post(uri], content: any, replacer?: any): IPromise<any>;
+        delete(uri]): IPromise<any>;
     }
 }
 
 declare module "aurelia-logging" {
 
     interface Logger {
-        id: string;
-        debug(message: string): void;
-        info(message: string): void;
-        warn(message: string): void;
-        error(message: string): void;
+        id];
+        debug(message]): void;
+        info(message]): void;
+        warn(message]): void;
+        error(message]): void;
     }
 
     const enum levels {
@@ -300,7 +300,7 @@ declare module "aurelia-logging" {
 
     class ConsoleAppender implements Appender { }
 
-    function getLogger(id: string): Logger;
+    function getLogger(id]): Logger;
 }
 
 interface AuAppender { }
@@ -313,39 +313,39 @@ declare module "aurelia-framework" {
     var LogManager: typeof Logging
 
     interface LogAppender extends AuAppender {
-        debug(logger: Logger, message: string, ...rest);
-        info(logger: Logger, message: string, ...rest);
-        warn(logger: Logger, message: string, ...rest);
-        error(logger: Logger, message: string, ...rest);
+        debug(logger: Logger, message], ...rest);
+        info(logger: Logger, message], ...rest);
+        warn(logger: Logger, message], ...rest);
+        error(logger: Logger, message], ...rest);
     }
 
     class AttributeConfig {
-        withProperty(property: string): void;
+        withProperty(property]): void;
     }
 
     class Behavior {
-        static withProperty(propertyName: string, changeHandler?: string, defaultVale?: string): Behavior;
-        static withOptions(attribute?: string): Behavior;
-        static attachedBehavior(attribute: string): Behavior;
-        static syncChildren(property: string, changeHandler: string, selector: string): Behavior;
-        static customElement(tagName: string): Behavior;
+        static withProperty(propertyName], changeHandler?], defaultVale?]): Behavior;
+        static withOptions(attribute?]): Behavior;
+        static attachedBehavior(attribute]): Behavior;
+        static syncChildren(property], changeHandler], selector]): Behavior;
+        static customElement(tagName]): Behavior;
         static useShadowDOM(): Behavior;
         static elementConfig(): Behavior;
-        static templateController(attribute: string): Behavior;
-        static useView(path: string): Behavior;
+        static templateController(attribute]): Behavior;
+        static useView(path]): Behavior;
         static noView(): Behavior;
         static transient(): Behavior;
         static skipContentProcessing(): Behavior;
 
-        withProperty(propertyName: string, changeHandler?: string, defaultValue?: string): Behavior;
-        withOptions(attribute?: string): Behavior;
-        attachedBehavior(attribute: string): Behavior;
-        syncChildren(property: string, changeHandler: string, selector: string): Behavior;
-        customElement(tagName: string): Behavior;
+        withProperty(propertyName], changeHandler?], defaultValue?]): Behavior;
+        withOptions(attribute?]): Behavior;
+        attachedBehavior(attribute]): Behavior;
+        syncChildren(property], changeHandler], selector]): Behavior;
+        customElement(tagName]): Behavior;
         useShadowDOM(): Behavior;
         elementConfig(): Behavior;
-        templateController(attribute: string): Behavior;
-        useView(path: string): Behavior;
+        templateController(attribute]): Behavior;
+        useView(path]): Behavior;
         noView(): Behavior;
         transient(): Behavior;
         and(configurer: (config: AttributeConfig) => void): Behavior;
@@ -360,7 +360,7 @@ declare module "aurelia-framework" {
         create(container, executionContext, options?): View;
     }
     class ViewResources {
-        public viewUrl: string;
+        public viewUrl];
     }
     class ViewSlot {
         add(view: View);
@@ -373,7 +373,7 @@ declare module "aurelia-framework" {
 
     interface Loader { }
     interface Plugins {
-        plugin(moduleID: string, config?: any): Plugins
+        plugin(moduleID], config?: any): Plugins
         es5(): Plugins
         atscript(): Plugins
         standardConfiguration(): Plugins
@@ -394,11 +394,11 @@ declare module "aurelia-framework" {
 
         withInstance<T>(type: Creator<T>, instance: T): Aurelia;
         withInstance<T, U>(type: Creator<T>, implementation: Creator<U>): Aurelia;
-        globalizeResources(...resourcePaths: string[]): Aurelia;
-        renameGlobalResource(resourcePath: string, newName: string): Aurelia;
+        globalizeResources(...resourcePaths][]): Aurelia;
+        renameGlobalResource(resourcePath], newName]): Aurelia;
 
         start(): Promise<Aurelia>;
-        setRoot(appModuleId: string, appHost: string | HTMLElement): Promise<Aurelia>;
+        setRoot(appModuleId], appHost] | HTMLElement): Promise<Aurelia>;
     }
 
 
@@ -449,7 +449,7 @@ declare module "aurelia-framework" {
 
 declare module "aurelia-metadata" {
     class Origin {
-        constructor(moduleId: string, moduleMember: string);
+        constructor(moduleId], moduleMember]);
         static get(fn: Function): Origin;
         static set(fn: Function, origin: Origin): Origin;
     }
@@ -458,9 +458,9 @@ declare module "aurelia-metadata" {
 declare module "aurelia-loader" {
     class Loader {
         static createDefaultLoader(): Loader;
-        loadModule(moduleId: string): IPromise<any>;
+        loadModule(moduleId]): IPromise<any>;
         loadAllModules(moduleIds: Array<string>): IPromise<any>;
-        loadTemplate(url: string): IPromise<any>;
-        importTemplate(url: string): IPromise<any>;
+        loadTemplate(url]): IPromise<any>;
+        importTemplate(url]): IPromise<any>;
     }
 }

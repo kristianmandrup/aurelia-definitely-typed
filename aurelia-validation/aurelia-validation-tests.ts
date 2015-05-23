@@ -102,7 +102,7 @@ function testValidationResultProperty {
   vrp.onValidate(callback);
   vrp.notifyObserversOfChange();
 
-    var shouldBeDirty = false;
+  var shouldBeDirty = false;
   var validationResponse = function() {};
 
   vrp.setValidity(validationResponse, shouldBeDirty);

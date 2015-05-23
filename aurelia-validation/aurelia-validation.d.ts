@@ -213,7 +213,7 @@ declare module 'aurelia-validation/validation/validation-rules-collection' {
 	    validate(newValue: any, locale: any): Promise<{
 	        isValid: boolean;
 	        message: any;
-	        failingRule: string;
+	        failingRule];
 	        latestValue: any;
 	    }>;
 	    addValidationRule(validationRule: any): void;

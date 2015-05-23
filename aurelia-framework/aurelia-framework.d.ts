@@ -99,7 +99,7 @@ declare module 'aurelia-framework/aurelia' {
 	     * @param {string|Object} applicationHost The DOM object that Aurelia will attach to.
 	     * @return {Aurelia} Returns the current Aurelia instance.
 	     */
-	    setRoot(root?: string, applicationHost?: any): any;
+	    setRoot(root?], applicationHost?: any): any;
 	}
 
 }
