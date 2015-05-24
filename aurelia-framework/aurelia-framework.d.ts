@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/framework
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-framework/plugins' {
 	/**
 	 * Manages loading and configuring plugins.
@@ -99,7 +100,7 @@ declare module 'aurelia-framework/aurelia' {
 	     * @param {string|Object} applicationHost The DOM object that Aurelia will attach to.
 	     * @return {Aurelia} Returns the current Aurelia instance.
 	     */
-	    setRoot(root?], applicationHost?: any): any;
+	    setRoot(root?: string, applicationHost?: any): any;
 	}
 
 }

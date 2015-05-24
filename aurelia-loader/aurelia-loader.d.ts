@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/loader
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-loader/template-registry-entry' {
 	export class TemplateDependency {
 	    src: any;

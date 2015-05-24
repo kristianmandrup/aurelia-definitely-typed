@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/path
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-path/index' {
 	export function relativeToFile(name: any, file: any): any;
 	export function join(path1: any, path2: any): any;

@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/task-queue
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-task-queue/index' {
 	export class TaskQueue {
 	    microTaskQueue: any;

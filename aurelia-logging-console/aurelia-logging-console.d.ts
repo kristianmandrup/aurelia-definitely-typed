@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/aurelia-logging-console
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-logging-console/index' {
 	export class ConsoleAppender {
 	    constructor();

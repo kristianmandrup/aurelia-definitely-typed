@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/history-browser
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-history-browser/index' {
 	import { History } from 'aurelia-history';
 	export class BrowserHistory extends History {

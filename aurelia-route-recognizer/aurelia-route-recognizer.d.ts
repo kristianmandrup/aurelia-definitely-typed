@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/route-recognizer
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-route-recognizer/state' {
 	export class State {
 	    charSpec: any;

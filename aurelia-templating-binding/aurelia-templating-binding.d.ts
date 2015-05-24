@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/templating-binding
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-templating-binding/syntax-interpreter' {
 	export class SyntaxInterpreter {
 	    static inject(): any[];

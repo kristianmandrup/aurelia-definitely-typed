@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/logging
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-logging/index' {
 	/**
 	 * This library is part of the Aurelia platform and contains a minimal but effective logging mechanism

@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/templating
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-templating/animator' {
 	export class Animator {
 	    static instance: any;

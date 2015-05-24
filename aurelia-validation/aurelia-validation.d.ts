@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/validation
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-validation/validation/utilities' {
 	export class Utilities {
 	    constructor();
@@ -213,7 +214,7 @@ declare module 'aurelia-validation/validation/validation-rules-collection' {
 	    validate(newValue: any, locale: any): Promise<{
 	        isValid: boolean;
 	        message: any;
-	        failingRule];
+	        failingRule: string;
 	        latestValue: any;
 	    }>;
 	    addValidationRule(validationRule: any): void;

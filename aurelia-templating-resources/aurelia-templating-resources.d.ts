@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/templating-resources
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-templating-resources/compose' {
 	export class Compose {
 	    element: any;

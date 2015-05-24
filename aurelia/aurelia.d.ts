@@ -60,7 +60,7 @@ declare module "aurelia-templating" {
         create(container, executionContext, options?): View;
     }
     class ViewResources {
-        public viewUrl];
+        public viewUrl: string;
     }
     class ViewSlot {
         add(view: View);
@@ -78,18 +78,18 @@ declare module "aurelia-router" {
 
     interface IRoute {
         route] | Array<string>;
-        moduleId];
+        moduleId: string;
         nav?: boolean | number;
-        title?];
+        title?: string;
         settings?: any;
     }
 
     interface INavigationInstruction {
         filter: (func: (route: IRouterStep) => boolean) => Array<IRouterStep>;
-        fragment];
-        queryString];
+        fragment: string;
+        queryString: string;
         params: any;  // TODO: routeParams
-        queryParams][];
+        queryParams: string[];
         config: IRouterConfig;
     }
 
@@ -110,8 +110,8 @@ declare module "aurelia-router" {
     }
 
     interface IRouterConfig {
-        title];
-        moduleId];
+        title: string;
+        moduleId: string;
         map: (routeArray: Array<IRoute>) => void;
         mapUnknownRoutes: (any) => void;
         addPipelineStep: (name], step: any) => void;
@@ -119,13 +119,13 @@ declare module "aurelia-router" {
     }
 
     interface IRouterNavigationRouteConfig extends IRouterConfig {
-        route];
-        name];
+        route: string;
+        name: string;
         navModel: IRouterNavigationRoute;
-        href];
+        href: string;
         isActive: boolean;
         order: number;
-        relativeHref];
+        relativeHref: string;
         settings: Object;
     }
 
@@ -133,15 +133,15 @@ declare module "aurelia-router" {
         config: IRouterNavigationRouteConfig;
         isActive: boolean;
         order: number;
-        relativeHref];
+        relativeHref: string;
         settings: Object;
         auth: boolean | string[];
-        title];
+        title: string;
     }
 
     interface INavigateOptions {
         trigger: boolean;
-        replace?];
+        replace?: string;
     }
 
     class Router {
@@ -151,7 +151,7 @@ declare module "aurelia-router" {
         navigate(fragment], optionsOrTrigger: INavigateOptions | boolean);
         navigateBack();
         refreshNavigation();
-        title];
+        title: string;
         addRoute(config: IRoute);
         reset();
         routes: IRoute[];
@@ -167,7 +167,7 @@ declare module "aurelia-router" {
     }
 
     class AppRouter {
-        baseUrl];
+        baseUrl: string;
         childRecognizer: any;
         container: aureliadependencyinjection.Container;
         currentInstruction: INavigationInstruction;
@@ -180,12 +180,12 @@ declare module "aurelia-router" {
         queue: any[];
         recognizer: any;// todo: RouteRecognizer
         routes: any[];
-        title];
+        title: string;
         viewPorts: any;
     }
 
     interface INavigationResult {
-        status];
+        status: string;
         context: INavigationContext;
         output: Error;
         completed: boolean;
@@ -200,7 +200,7 @@ declare module "aurelia-router" {
     class NavigationContext {
         plan: {
             default: {
-                config: { moduleId] }
+                config: { moduleId }
             }
         }
         router: Router;
@@ -211,13 +211,13 @@ declare module "aurelia-router" {
 declare module "aurelia-history" {
     class History {
         active: boolean;
-        fragment];
+        fragment: string;
         history: History;
         interval: number;
         location: any; // todo: Location
         options: any;
-        previousFragment];
-        root];
+        previousFragment: string;
+        root: string;
     }
 }
 
@@ -251,9 +251,9 @@ declare module "aurelia-http-client" {
         headers: HttpHeaders;
         isSuccess: boolean;
         response: T;
-        responseType];
+        responseType: string;
         statusCode: number;
-        statusText];
+        statusText: string;
         content: T;
     }
 
@@ -278,7 +278,7 @@ declare module "aurelia-http-client" {
 declare module "aurelia-logging" {
 
     interface Logger {
-        id];
+        id: string;
         debug(message]): void;
         info(message]): void;
         warn(message]): void;
@@ -360,7 +360,7 @@ declare module "aurelia-framework" {
         create(container, executionContext, options?): View;
     }
     class ViewResources {
-        public viewUrl];
+        public viewUrl: string;
     }
     class ViewSlot {
         add(view: View);

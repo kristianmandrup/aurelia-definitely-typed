@@ -33,25 +33,25 @@ function testHttpResponseMessage {
 
 function testMimeTypes {
   mimeTypes["text/html"]
-  mimeTypes["text/javascript"];
-  mimeTypes["application/javascript"];
-  mimeTypes["text/json"];
-  mimeTypes["application/json"];
-  mimeTypes["application/rss+xml"];
-  mimeTypes["application/atom+xml"];
-  mimeTypes["application/xhtml+xml"];
-  mimeTypes["text/markdown"];
-  mimeTypes["text/xml"];
-  mimeTypes["text/mathml"];
-  mimeTypes["application/xml"];
-  mimeTypes["text/yml"];
-  mimeTypes["text/csv"];
-  mimeTypes["text/css"];
-  mimeTypes["text/less"];
-  mimeTypes["text/stylus"];
-  mimeTypes["text/scss"];
-  mimeTypes["text/sass"];
-  mimeTypes["text/plain"];
+  mimeTypes["text/javascript": string;
+  mimeTypes["application/javascript": string;
+  mimeTypes["text/json": string;
+  mimeTypes["application/json": string;
+  mimeTypes["application/rss+xml": string;
+  mimeTypes["application/atom+xml": string;
+  mimeTypes["application/xhtml+xml": string;
+  mimeTypes["text/markdown": string;
+  mimeTypes["text/xml": string;
+  mimeTypes["text/mathml": string;
+  mimeTypes["application/xml": string;
+  mimeTypes["text/yml": string;
+  mimeTypes["text/csv": string;
+  mimeTypes["text/css": string;
+  mimeTypes["text/less": string;
+  mimeTypes["text/stylus": string;
+  mimeTypes["text/scss": string;
+  mimeTypes["text/sass": string;
+  mimeTypes["text/plain": string;
 };
 
 

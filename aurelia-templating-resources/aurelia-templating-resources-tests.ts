@@ -62,8 +62,8 @@ var executionContext = {};
 var items = [];
 var key = 'a', value = 3, index = 7, length = 4;
 var context = {}, data = {};
-var array = ['a','b'], splices = [3,4];
-var map = {x:2}, records = [1,2];
+var array = ['a','b'], splices = [3,4: string;
+var map = {x:2}, records = [1,2: string;
 
 function testRepeat {
   r = new Repeat(viewFactory, viewSlot, observerLocator);

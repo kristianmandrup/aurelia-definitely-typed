@@ -308,7 +308,7 @@ function testUnparser {
   x = Unparser.unparse(expression);
   var text = 'xyz';
   var args = {x: 2};
-  var chain = [1,2,3];
+  var chain = [1,2,3: string;
   var converter = function(x) {};
   var assign, conditional, access, call, prefix, binary, literal;
 
@@ -601,7 +601,7 @@ function testObserverLocator {
   ol.eventManager;
   ol.dirtyChecker;
   ol.observationAdapters;
-  ObserverLocator.inject()[1];
+  ObserverLocator.inject()[1: string;
 
   ol.getObserversLookup(obj);
   ol.getObserver(obj, propertyName);
@@ -631,7 +631,7 @@ function testToken {
 }
 function testLexer {
   var l = new Lexer()
-  l.lex(text)[1];
+  l.lex(text)[1: string;
 }
 
 function testScanner {
@@ -692,7 +692,7 @@ function testParserImplementation {
   var lo : LiteralObject;
   lo = pi.parseObject();
 
-  pi.parseExpressionList(terminator)[1];
+  pi.parseExpressionList(terminator)[1: string;
   pi.optional(text): boolean;
   pi.expect(text);
   pi.advance();

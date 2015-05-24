@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/http-client
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-http-client/headers' {
 	export class Headers {
 	    headers: any;

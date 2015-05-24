@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/metadata
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-metadata/metadata' {
 	/**
 	* Provides helpers for working with metadata.

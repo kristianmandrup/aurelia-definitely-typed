@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/dependency-injection
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-dependency-injection/metadata' {
 	/**
 	* Used to allow functions/classes to indicate that they should be registered as transients with the container.

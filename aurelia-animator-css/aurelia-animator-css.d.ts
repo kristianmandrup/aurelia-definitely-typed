@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/animator-css
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-animator-css/animator' {
 	export class CssAnimator {
 	    animationStack: any;

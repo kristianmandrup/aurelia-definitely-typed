@@ -38,7 +38,7 @@ function testTWBootstrapViewStrategy {
   var currentElement, element;
   var currentDepth = 1;
   var validationProperty = 'x';
-  var currentLabels = ['x', 'y'];
+  var currentLabels = ['x', 'y': string;
 
   bvs.searchFormGroup(currentElement, currentDepth);
   bvs.findLabels(formGroup, inputId)[];

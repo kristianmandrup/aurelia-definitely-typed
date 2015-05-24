@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/templating-router
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-templating-router/route-loader' {
 	import { RouteLoader } from 'aurelia-router';
 	export class TemplatingRouteLoader extends RouteLoader {

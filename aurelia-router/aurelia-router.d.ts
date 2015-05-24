@@ -2,6 +2,7 @@
 // Project: https://github.com/aurelia/router
 // Definitions by: Kristian Mandrup <https://github.com/kristianmandrup/>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
+
 declare module 'aurelia-router/navigation-commands' {
 	/**
 	 * Determines if the provided object is a navigation command.
